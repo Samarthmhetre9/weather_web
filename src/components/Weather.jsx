@@ -2,12 +2,12 @@ import React, { useEffect, useState, useRef } from 'react'
 import './Weather.css'
 import searchi from '../Assets/search.png'
 import cloud from '../Assets/cloud.png'
-import rain from '../assets/rain.png'
-import drizzle from '../assets/drizzle.png'
-import snow from '../assets/snow.png'
-import humidity from '../assets/humidity.png'
-import wind from '../assets/wind.png'
-import clear from '../assets/clear.png'
+import rain from '../Assets/rain.png'
+import drizzle from '../Assets/drizzle.png'
+import snow from '../Assets/snow.png'
+import humidity from '../Assets/humidity.png'
+import wind from '../Assets/wind.png'
+import clear from '../Assets/clear.png'
 const Weather = () => {
     const inputref= useRef()
 
