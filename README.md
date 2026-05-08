@@ -1,20 +1,94 @@
-<<<<<<< HEAD
-# React + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and responsive Weather Application built using React and Vite.  
+This app fetches real-time weather data using the WeatherAPI.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Search weather by city name
+- Displays:
+  - Temperature
+  - Humidity
+  - Wind Speed
+  - Weather Condition Icons
+- Dynamic weather icons based on weather conditions
+- Responsive UI
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React.js
+- Vite
+- CSS
+- WeatherAPI
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# Movies_Searchweb
->>>>>>> ed67df01f9e318e8d559e72e9b50b05ad7ced1df
+```bash
+src/
+│
+├── assets/
+│   ├── clear.png
+│   ├── cloud.png
+│   ├── drizzle.png
+│   ├── rain.png
+│   ├── snow.png
+│   ├── humidity.png
+│   ├── wind.png
+│   └── search.png
+│
+├── components/
+│   └── Weather.jsx
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+```
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Samarthmhetre9/Weather_App.git
+```
+
+Go to project folder:
+
+```bash
+cd Weather_App
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+## Environment Variables
+
+Create a `.env` file in the root folder and add:
+
+```env
+VITE_APP_ID=your_weatherapi_key
+```
+
+Get your API key from:
+
+https://www.weatherapi.com/
+
+## Screenshots
+
+![kolhapur weather](<Screenshot 2026-05-08 095336.png>)
+## Author
+
+Samarth Mhetre
+
+## License
+
+This project is for educational purposes.
