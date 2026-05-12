@@ -1,5 +1,5 @@
+const fetch = require('node-fetch');
 const express = require("express");
-import fetch from 'node-fetch';
 const cors = require("cors");
 const axios = require("axios");
 const mongoose = require("mongoose");
