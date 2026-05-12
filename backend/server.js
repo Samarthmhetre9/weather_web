@@ -1,4 +1,5 @@
 const express = require("express");
+import fetch from 'node-fetch';
 const cors = require("cors");
 const axios = require("axios");
 const mongoose = require("mongoose");
@@ -10,8 +11,20 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('API Running');
+app.get('/weather/:city', async (req, res) => {
+  const city = req.params.city;
+
+  try {
+    const response = await fetch(
+      `http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${city}`
+    );
+
+    const data = await response.json();
+
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch weather data' });
+  }
 });
 
 // MongoDB Connection
