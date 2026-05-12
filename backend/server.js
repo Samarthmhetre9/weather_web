@@ -51,24 +51,11 @@ app.get("/weather/:city", async (req, res) => {
       `https://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${city}&aqi=no`
     );
 
-    const data = response.data;
-
-    // Save to MongoDB
-    await Weather.create({
-      city: data.location.name,
-      temperature: data.current.temp_c,
-      humidity: data.current.humidity,
-      wind: data.current.wind_kph
-    });
-
-    res.json(data);
+    res.json(response.data);
 
   } catch (error) {
-    console.log("Weather API Error:", error.message);
-
-    res.status(500).json({
-      error: "Failed to fetch weather data"
-    });
+    console.log(error.message);
+    res.status(500).json({ error: "Weather API failed" });
   }
 });
 
