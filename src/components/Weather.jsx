@@ -96,14 +96,15 @@ const Weather = () => {
         }
       try {
          
-        const url=`https://api.weatherapi.com/v1/current.json?key=${import.meta.env.VITE_APP_ID}&q=${city}&aqi=no`;
-        console.log(url);
+        const url = `http://localhost:5000/weather/${city}`;        console.log(url);   
         const response = await fetch(url);
          const data= await response.json();
+
         if(!response.ok)
         {  
           alert(data.error.message);
           return;
+          
         }
 
 
@@ -131,7 +132,12 @@ const Weather = () => {
   return (
     <div className='weather'>
       <div className='serach-bar'>
-        <input ref={inputref} type="text" placeholder='Enter city name' />
+        <input ref={inputref} type="text" placeholder='Enter city name'
+                onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              search(inputref.current.value);
+            }
+          }} />
         <img src={searchi} alt="search" onClick={()=>search(inputref.current.value)}/>
       </div>
       {weatherData? <>
