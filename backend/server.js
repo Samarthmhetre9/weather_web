@@ -10,16 +10,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-/* =========================
-   MongoDB Atlas Connection
-========================= */
+// 
+//    MongoDB Atlas Connection
 mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log("MongoDB Connected"))
 .catch((err) => console.log("MongoDB Error:", err));
 
-/* =========================
-   Schema
-========================= */
+// /
+//    Schema
+
 const WeatherSchema = new mongoose.Schema({
   city: String,
   temperature: Number,
@@ -50,6 +49,17 @@ app.get("/weather/:city", async (req, res) => {
     const response = await axios.get(
       `https://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${city}&aqi=no`
     );
+    
+    const data = response.data;
+
+    await Weather.create({
+      city: data.location.name,
+      temperature: data.current.temp_c,
+      humidity: data.current.humidity,
+      wind: data.current.wind_kph
+    });
+
+
 
     res.json(response.data);
 
