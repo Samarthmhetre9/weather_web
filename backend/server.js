@@ -16,7 +16,7 @@ app.get('/weather/:city', async (req, res) => {
 
   try {
     const response = await fetch(
-      `http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${city}`
+      `http://api.weatherapi.com/v1/current.json?key=${process.env.VITE_APP_ID}&q=${city}`
     );
 
     const data = await response.json();
