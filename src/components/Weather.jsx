@@ -96,7 +96,7 @@ const Weather = () => {
         }
       try {
          
-        const url = `https://weather-web-f4f1.onrender.com//weather/${city}`;        console.log(url);   
+        const url = `https://weather-web-f4f1.onrender.com/weather/${city}`;        console.log(url);   
         const response = await fetch(url);
          const data= await response.json();
 
